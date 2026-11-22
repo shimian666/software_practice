@@ -37,7 +37,7 @@ public class AiServiceImpl implements AiService {
             log.error("参数错误：模型未返回内容");
             throw new IllegalArgumentException("参数错误：模型未返回内容");
         }
-        DeepseekChatResponse.Message reply = response.choices().get(0).message();
+        DeepseekChatResponse.Message reply = response.choices().getFirst().message();
         if (reply == null || reply.content() == null || reply.content().isBlank()) {
             log.error("参数错误：模型未返回有效内容");
             throw new IllegalArgumentException("参数错误：模型未返回有效内容");
