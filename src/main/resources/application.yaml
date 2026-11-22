@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: software_practice
+
+server:
+  port: 8080
+
