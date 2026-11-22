@@ -10,7 +10,7 @@ import org.springframework.web.client.RestClient;
 
 @Configuration
 public class DeepseekConfig {
-    @Value("${deepseek.apikey}")
+    @Value("${deepseek.api-key}")
     private String apiKey;
     @Value("${deepseek.base-url}")
     private String baseUrl;

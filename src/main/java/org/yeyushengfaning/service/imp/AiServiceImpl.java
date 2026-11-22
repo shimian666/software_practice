@@ -20,20 +20,22 @@ public class AiServiceImpl implements AiService {
 
     @Override
     public String chat(String message) {
-        //构造用户信息
         DeepseekChatRequest.Message userMessage = new DeepseekChatRequest.Message("user", message);
-        //构造api请求对象
         DeepseekChatRequest request = new DeepseekChatRequest(model, List.of(userMessage), false);
-        //调用api
-        DeepseekChatResponse response = restClient.post().uri("/chat/completions").body(request).retrieve().body(DeepseekChatResponse.class);
 
-        //壮硕性判断
-        if (response.choices().isEmpty()
-        || response.choices().get(0).content() == null
-                || response.choices().get(0).content().isEmpty()){
+        DeepseekChatResponse response = restClient.post()
+                .uri("/chat/completions")
+                .body(request)
+                .retrieve()
+                .body(DeepseekChatResponse.class);
+
+        if (response == null || response.choices() == null || response.choices().isEmpty()) {
             return "我不知道你在说什么";
         }
-        //获取ai回答
-        return response.choices().get(0).content();
+        DeepseekChatResponse.Message reply = response.choices().get(0).message();
+        if (reply == null || reply.content() == null || reply.content().isBlank()) {
+            return "我不知道你在说什么";
+        }
+        return reply.content();
     }
 }
