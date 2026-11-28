@@ -4,8 +4,8 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 import org.yeyushengfaning.service.AiService;
 
-import static org.yeyushengfaning.constant.promptConstant.SYSTEM_PROMPT;
-import static org.yeyushengfaning.constant.promptConstant.USER_PROMPT;
+import static org.yeyushengfaning.constant.PromptConstant.SYSTEM_PROMPT;
+import static org.yeyushengfaning.constant.PromptConstant.USER_PROMPT;
 
 @Service
 public class AiServiceImpl implements AiService {

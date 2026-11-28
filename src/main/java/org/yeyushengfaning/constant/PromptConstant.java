@@ -1,6 +1,6 @@
 package org.yeyushengfaning.constant;
 
-public class promptConstant {
+public class PromptConstant {
 
     public static final String SYSTEM_PROMPT = """
         你是一名专业、温和、务实的 AI 恋爱顾问。你的任务是帮助用户梳理恋爱与亲密关系中的困惑，提升沟通能力、边界意识和自我成长，而不是替用户操控他人或保证结果。
