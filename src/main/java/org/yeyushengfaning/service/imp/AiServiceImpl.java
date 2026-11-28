@@ -1,6 +1,7 @@
 package org.yeyushengfaning.service.imp;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.session.SessionService;
 import org.springframework.ai.session.advisor.SessionAdvisors;
 import org.springframework.stereotype.Service;
 import org.yeyushengfaning.service.AiService;
@@ -13,8 +14,10 @@ public class AiServiceImpl implements AiService {
 
     private final ChatClient chatClient;
 
-    public AiServiceImpl(ChatClient.Builder chatClientBuilder) {
-        this.chatClient = chatClientBuilder.build();
+    public AiServiceImpl(ChatClient.Builder chatClientBuilder, SessionService sessionService) {
+        this.chatClient = chatClientBuilder
+                .defaultAdvisors(SessionAdvisors.builder(sessionService).build())
+                .build();
     }
 
     @Override
