@@ -8,7 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;
 
-@Configuration
+//@Configuration
 public class DeepseekConfig {
     @Value("${deepseek.api-key}")
     private String apiKey;
