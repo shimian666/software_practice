@@ -1,6 +1,7 @@
 package org.yeyushengfaning.service.imp;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.session.advisor.SessionAdvisors;
 import org.springframework.stereotype.Service;
 import org.yeyushengfaning.service.AiService;
 
@@ -17,7 +18,7 @@ public class AiServiceImpl implements AiService {
     }
 
     @Override
-    public String chat(String message) {
-        return chatClient.prompt().system(SYSTEM_PROMPT).user(USER_PROMPT).advisors().call().content();
+    public String chat(String sessionId, String message) {
+        return chatClient.prompt().system(SYSTEM_PROMPT + USER_PROMPT).user(message).advisors(SessionAdvisors.session(sessionId)).call().content();
     }
 }

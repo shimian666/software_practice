@@ -19,9 +19,10 @@ public class AiController {
     @PostMapping("/chat")
     public ApiResponse<String> chat(@RequestBody ChatRequest chatRequest) {
         String message = chatRequest.getMessage();
+        String sessionId = chatRequest.getSessionId();
         if (message == null || message.isBlank()) {
             return ApiResponse.fail("message 不能为空");
         }
-        return ApiResponse.success(aiService.chat(message));
+        return ApiResponse.success(aiService.chat(sessionId, message));
     }
 }
