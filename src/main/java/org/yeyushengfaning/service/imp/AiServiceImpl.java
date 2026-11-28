@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.yeyushengfaning.service.AiService;
 
 import static org.yeyushengfaning.constant.promptConstant.SYSTEM_PROMPT;
+import static org.yeyushengfaning.constant.promptConstant.USER_PROMPT;
 
 @Service
 public class AiServiceImpl implements AiService {
@@ -17,6 +18,6 @@ public class AiServiceImpl implements AiService {
 
     @Override
     public String chat(String message) {
-        return chatClient.prompt().system(SYSTEM_PROMPT).user(message).call().content();
+        return chatClient.prompt().system(SYSTEM_PROMPT).user(USER_PROMPT).call().content();
     }
 }
