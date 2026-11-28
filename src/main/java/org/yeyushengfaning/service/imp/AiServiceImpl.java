@@ -18,6 +18,6 @@ public class AiServiceImpl implements AiService {
 
     @Override
     public String chat(String message) {
-        return chatClient.prompt().system(SYSTEM_PROMPT).user(USER_PROMPT).call().content();
+        return chatClient.prompt().system(SYSTEM_PROMPT).user(USER_PROMPT).advisors().call().content();
     }
 }
